@@ -1,49 +1,37 @@
-﻿Console.WriteLine("REgister");
-
-Console.WriteLine("Enter username: ");
-
-string username = Console.ReadLine();
-
-Console.WriteLine("Enter password: ");
-
-string password = Console.ReadLine();
-
-    
-
-var path = @"C:\Users\USER\Desktop\lang\reg.txt";
-
-
-    File.AppendAllText(path, username + " ");
-    File.AppendAllText(path, password);
-    File.AppendAllText(path, "\n");
-
-
-
-
-
-
-
-
-
-Console.WriteLine(" Login");
-Console.WriteLine("username: ");
-string username_login = Console.ReadLine();
-Console.WriteLine("password: ");
-string password_login = Console.ReadLine();
-
-string[] lines = File.ReadAllLines(@"C:\\Users\\USER\\Desktop\\lang\\reg.txt");
-
-for (int i = 0; i < lines.Length; i++)
+﻿//
+using ConsoleApp3;
+class Program
 {
-    string[] values = lines[i].Split(' ');
-
-    if (values[0] == username_login && values[1] == password_login)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Welcome, " + username_login);
-        break;
+        //Welcome, Choose an Option to Proceed.
+        //1. Register (Type 1)
+        //2. Login (Type 2)
+
+        //If (Console.readline == 1 
+        Register register = new Register();
+        Login login = new Login();
+
+        //If (Console.readline == 2
+       /* Login login = new Login();
+        login.main(); */
+
+       Console.WriteLine(" Welcome, Choose an Option to Proceed \n 1. Register  (Type 1) \n 2. Login  (Type 2)");
+        string option = Console.ReadLine();
+        if (option == "1")
+            {
+            register.Start();
+            
+        }
+       else if (option == "2")
+        {
+            Console.WriteLine("Proceed to login");
+            login.Start();
+        }
+        else { 
+            Console.WriteLine("You entered an invalid option");
+        }
+
     }
+
 }
-
-
-
-
